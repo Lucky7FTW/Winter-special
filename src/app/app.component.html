@@ -3,10 +3,16 @@
     class="snowflake"
     *ngFor="let flake of snowflakes"
     [style.left.%]="flake.left"
-    [style.animation-delay.s]="flake.delay"
-    [style.animation-duration.s]="flake.duration"
-    [style.font-size.em]="flake.size"
+    [style.animation-delay]="flake.delay + 's'"
+    [style.animation-duration]="flake.duration + 's'"
   >
-    ❄
+    <span
+      class="flake-char"
+      [style.font-size.em]="flake.size"
+      [style.animation-duration]="flake.rotateDuration + 's'"
+      [style.opacity]="flake.opacity"
+    >
+      {{flake.char}}
+    </span>
   </div>
 </div>
